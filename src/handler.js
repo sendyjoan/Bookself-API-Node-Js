@@ -31,7 +31,7 @@ const addBookHandler = (request, h) => {
     if (isSuccess) {
         const response = h.response({
         status: 'success',
-        message: 'Catatan berhasil ditambahkan',
+        message: 'Buku berhasil ditambahkan',
         data: {
             noteId: id,
         },
@@ -41,7 +41,7 @@ const addBookHandler = (request, h) => {
     }
     const response = h.response({
         status: 'fail',
-        message: 'Catatan gagal ditambahkan',
+        message: 'Buku gagal ditambahkan',
     });
     response.code(500);
     return response;
