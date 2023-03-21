@@ -6,7 +6,7 @@ const addBookHandler = (request, h) => {
 
     const id = nanoid(16);
     const insertedAt = new Date().toISOString();
-    const updatedAt = createdAt;
+    const updatedAt = insertedAt;
     const finished = (pageCount === readPage);
 
     const newBook = {
@@ -26,14 +26,14 @@ const addBookHandler = (request, h) => {
 
     books.push(newBook); 
 
-    const isSuccess = notes.filter((note) => note.id === id).length > 0;
+    const isSuccess = books.filter((book) => book.id === id).length > 0;
     
     if (isSuccess) {
         const response = h.response({
         status: 'success',
         message: 'Buku berhasil ditambahkan',
         data: {
-            noteId: id,
+            bookId: id,
         },
         });
         response.code(201);
